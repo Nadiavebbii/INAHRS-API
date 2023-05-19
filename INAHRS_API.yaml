@@ -1,0 +1,5860 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: INAHRS Api
+  contact: {}
+host: inahrs.or.id
+basePath: /asm2023/api/mobile/v2
+securityDefinitions: {}
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /login-participant:
+    post:
+      summary: Login Participant
+      tags:
+      - Auth
+      operationId: LoginParticipant
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: password
+        in: formData
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LoginBerhasil'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Login Berhasil.
+              data:
+                nama_lengkap: Daffa Pratama
+                email: daffa@totalit.co.id
+                api_token: Al2A020PJWzB2cpfozoLzz6C9GYKeQrfduwFaVmn05PfIYQS3yDjC3LID1w8myXAQKPZzzrjsHPrZQEY
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '193'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:44:50 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /logout-participant:
+    get:
+      summary: Logout Participant
+      tags:
+      - Auth
+      operationId: LogoutParticipant
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/LogoutBerhasil'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Logout Berhasil.
+              data: null
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '66'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:48:14 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthenticated1'
+          examples:
+            application/json:
+              message: Unauthenticated.
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            content-length:
+              type: string
+              default: '35'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:49:11 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /forgot-password:
+    post:
+      summary: Forgot Password
+      tags:
+      - Auth
+      operationId: ForgotPassword
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResetPasswordBerhasil'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Reset Password Berhasil.
+              data: null
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '72'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:51:04 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /check-token:
+    get:
+      summary: Check Token
+      tags:
+      - Auth
+      operationId: CheckToken
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Tokenalive'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Token alive
+              data:
+                nama_lengkap: Daffa Pratama
+                email: daffa@totalit.co.id
+                api_token: 6d3a17cbe5fa39695385b05045f667723381b92df9f289607b079172bc6931f6
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '163'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:56:01 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthenticated1'
+          examples:
+            application/json:
+              message: Unauthenticated.
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            content-length:
+              type: string
+              default: '35'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:53:11 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-registration:
+    get:
+      summary: Helper Registration
+      tags:
+      - Registration
+      operationId: HelperRegistration
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+                category:
+                - id: 8
+                  category_name: Overseas
+                  is_publish: true
+                  created_at: 2023-03-30 11:50:03
+                  updated_at: 2023-03-31 11:07:24
+                  deleted_at: null
+                - id: 7
+                  category_name: Cardiologist
+                  is_publish: true
+                  created_at: 2023-03-17 15:04:12
+                  updated_at: 2023-03-17 15:04:12
+                  deleted_at: null
+                - id: 1
+                  category_name: Other Specialist
+                  is_publish: true
+                  created_at: 2022-06-15 11:48:37
+                  updated_at: 2023-03-17 15:03:57
+                  deleted_at: null
+                - id: 2
+                  category_name: General Practitioner
+                  is_publish: true
+                  created_at: 2022-06-15 11:48:56
+                  updated_at: 2023-03-13 11:34:05
+                  deleted_at: null
+                - id: 5
+                  category_name: Resident
+                  is_publish: true
+                  created_at: 2023-03-13 11:34:17
+                  updated_at: 2023-03-13 11:34:17
+                  deleted_at: null
+                - id: 6
+                  category_name: Medical Student
+                  is_publish: true
+                  created_at: 2023-03-13 11:34:44
+                  updated_at: 2023-03-13 11:34:44
+                  deleted_at: null
+                - id: 3
+                  category_name: Allied Professional
+                  is_publish: true
+                  created_at: 2022-06-15 11:49:08
+                  updated_at: 2023-03-13 11:34:32
+                  deleted_at: null
+                hotel_room:
+                - id: 1
+                  hotel_id: '1'
+                  room_name: Westin Room
+                  description: Westin Room
+                  room_rate: 2500000
+                  room_rate_usd: 170
+                  qty: 5
+                  startdate_stock: 2023-08-17 00:00:00
+                  enddate_stock: 2023-08-20 00:00:00
+                  image: null
+                  created_at: 2023-03-17 10:53:55
+                  updated_at: 2023-04-03 11:47:59
+                  deleted_at: null
+                  title: The Westin Hotel Jakarta
+                - id: 2
+                  hotel_id: '1'
+                  room_name: Premium Room
+                  description: Premium Room
+                  room_rate: 3500000
+                  room_rate_usd: 240
+                  qty: 11
+                  startdate_stock: 2023-08-17 00:00:00
+                  enddate_stock: 2023-08-20 00:00:00
+                  image: null
+                  created_at: 2023-04-03 11:51:55
+                  updated_at: 2023-04-03 11:51:55
+                  deleted_at: null
+                  title: The Westin Hotel Jakarta
+                - id: 3
+                  hotel_id: '1'
+                  room_name: Renewal Room
+                  description: Renewal Room
+                  room_rate: 4000000
+                  room_rate_usd: 272
+                  qty: 11
+                  startdate_stock: 2023-08-17 00:00:00
+                  enddate_stock: 2023-08-20 00:00:00
+                  image: null
+                  created_at: 2023-04-03 11:53:29
+                  updated_at: 2023-04-03 11:53:29
+                  deleted_at: null
+                  title: The Westin Hotel Jakarta
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '549'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:59:33 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-get-package/1:
+    get:
+      summary: Helper Get Package
+      tags:
+      - Registration
+      operationId: HelperGetPackage
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil1'
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '58'
+            content-length:
+              type: string
+              default: '577'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 07:59:49 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-check-email:
+    post:
+      summary: Helper Check Email
+      tags:
+      - Registration
+      operationId: HelperCheckEmail
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: required|email
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Emailavailable'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Email available.
+              data: null
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '57'
+            content-length:
+              type: string
+              default: '65'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:00:12 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-get-hotelroom/2:
+    get:
+      summary: Helper Get Hotel Room
+      tags:
+      - Registration
+      operationId: HelperGetHotelRoom
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil2'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+                id: 2
+                hotel_id: '1'
+                room_name: Premium Room
+                description: Premium Room
+                room_rate: 3500000
+                room_rate_usd: 240
+                qty: 11
+                startdate_stock: 2023-08-17
+                enddate_stock: 2023-08-20
+                stocks:
+                - id: 5
+                  room_id: '2'
+                  stock_date: 2023-08-17
+                  stock_qty: '11'
+                - id: 6
+                  room_id: '2'
+                  stock_date: 2023-08-18
+                  stock_qty: '10'
+                - id: 7
+                  room_id: '2'
+                  stock_date: 2023-08-19
+                  stock_qty: '9'
+                - id: 8
+                  room_id: '2'
+                  stock_date: 2023-08-20
+                  stock_qty: '10'
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '58'
+            content-length:
+              type: string
+              default: '230'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:04:55 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-check-promo:
+    post:
+      summary: Helper Check Promo Code
+      tags:
+      - Registration
+      operationId: HelperCheckPromoCode
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: promo_code
+        in: formData
+        required: true
+        type: string
+        description: required
+      - name: package_id
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: required
+      - name: category_id
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: required
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Promocodeiscorrect'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Promo code is correct, you get a 50% discount
+              data:
+                id: 1
+                package_id: 9
+                category_id: 1
+                promo_code: DISCOUNT50TOTALIT
+                promo_type: Percent
+                promo: '50'
+                qty: 10
+                start_date: 2023-05-01 00:00:00
+                end_date: 2023-05-30 00:00:00
+                created_at: 2023-05-16 16:57:29
+                updated_at: 2023-05-16 16:57:29
+                deleted_at: null
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '234'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:05:41 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /helper-check-service-charge:
+    post:
+      summary: Helper Check Service Charge
+      tags:
+      - Registration
+      operationId: HelperCheckServiceCharge
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: price
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: required|numeric
+      - name: currency
+        in: formData
+        required: true
+        type: string
+        description: required|in:['IDR', 'USD']
+      - name: payment_method
+        in: formData
+        required: true
+        type: string
+        description: required|in:['Virtual Transfer', 'Credit Card', 'QRIS', 'E-Wallet']
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ServiceChargeGenerated'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Service Charge Generated.
+              data:
+                price: '2000000'
+                currency: USD
+                payment_method: Credit Card
+                service_charge: 60400
+                service_charge_usd: 4
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '135'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:35:49 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /registration:
+    post:
+      summary: Registration
+      tags:
+      - Registration
+      operationId: Registration
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: title
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: full_name
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: certificate_name
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: email
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: phone_number
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: institution
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: category_id
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: category_name
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: package_id
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: package_name
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: symposium
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: workshop
+        in: formData
+        required: true
+        type: array
+        items:
+          type: string
+        description: ''
+      - name: package_price
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: additional_price
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: fgHotel
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: hotelroom_id
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: pernights
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: checkdate
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: checkoutdate
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: numofroom
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: payment_method
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: promo_code
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: hotel_price
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: discount_price
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: service_charge
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: total_price
+        in: formData
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil3'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+                xendit_link: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+                data:
+                  register_number: REG202305190020
+                  title: H.
+                  full_name: Muhidin
+                  certificate_name: H. Muhidin
+                  email: muhidin@jaja.com.id
+                  phone_number: '3244234'
+                  gender: null
+                  place_of_birth: null
+                  date_of_birth: 1970-01-01
+                  country: null
+                  province: null
+                  city: null
+                  institution: zczczcz
+                  office_phone_number: null
+                  profession_name: null
+                  category: General
+                  category_id: '1'
+                  package: '1'
+                  package_id: '1'
+                  workshop: '[]'
+                  workshop_id: []
+                  symposium: '1'
+                  package_price: 100000
+                  additional_price: 0
+                  payment_method: Virtual Transfer
+                  promo_code: null
+                  discount_type: null
+                  discount_price: 0
+                  service_charge: 0
+                  total_price: 200000
+                  updated_at: 2023-05-19 15:36:38
+                  created_at: 2023-05-19 15:36:36
+                  id: 49
+                  xendit_id: 6467351591dd0a902a3f1161
+                  invoice_url: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+                  invoice_expired: 2023-05-21 08:36:37
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '58'
+            content-length:
+              type: string
+              default: '530'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:36:40 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-data-workshop:
+    get:
+      summary: Get Data Workshop
+      tags:
+      - Session
+      operationId: GetDataWorkshop
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil4'
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            transfer-encoding:
+              type: string
+              default: chunked
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:38:20 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-data-symposium:
+    get:
+      summary: Get Data Symposium
+      tags:
+      - Session
+      operationId: GetDataSymposium
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil5'
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '58'
+            transfer-encoding:
+              type: string
+              default: chunked
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:38:54 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-data-webinar:
+    get:
+      summary: Get Data Webinar
+      tags:
+      - Session
+      operationId: GetDataWebinar
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil6'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+              - id: 15
+                series_type_id: '5'
+                series_title: Case Series Qualification 1
+                series_date: 2023-07-14
+                series_number: null
+                room_name: null
+                start_time: null
+                end_time: null
+                course_director: []
+                speaker: null
+                detail_schedule: null
+                link_vc: null
+                id_vc: null
+                password_vc: null
+                exibitor_id: null
+                sponsor_image: null
+                video_recorder: null
+                is_status: 1
+                certificate_image: null
+                certificate_speaker: null
+                certificate_moderator: null
+                certificate_committee: null
+                panelist:
+                - '4'
+                - '5'
+                - '37'
+                created_at: 2023-05-16 13:40:27
+                updated_at: 2023-05-16 13:40:27
+                deleted_at: null
+                hari: Friday
+                min_time: 19:30
+                max_time: 21:00
+                series_detail:
+                - id: 49
+                  series_id: '15'
+                  series_date: 2023-07-14
+                  topic: Panelis
+                  start_time: 19:30:00
+                  end_time: 21:00:00
+                  chairman_id1: null
+                  chairman_id2: null
+                  cochairman_id: null
+                  speaker_id1: null
+                  speaker_id2: null
+                  speaker_id3: null
+                  detail_schedule: null
+                  theory_file: null
+                  link_vc: null
+                  id_vc: null
+                  password_vc: null
+                  is_status: 1
+                  created_at: 2023-05-16 13:42:02
+                  updated_at: 2023-05-16 13:42:02
+                  deleted_at: null
+                  chairman: []
+                  speaker: []
+                  cochairman: []
+              - id: 16
+                series_type_id: '5'
+                series_title: Case Series Qualification 2
+                series_date: 2023-07-21
+                series_number: null
+                room_name: null
+                start_time: null
+                end_time: null
+                course_director: []
+                speaker: null
+                detail_schedule: null
+                link_vc: null
+                id_vc: null
+                password_vc: null
+                exibitor_id: null
+                sponsor_image: null
+                video_recorder: null
+                is_status: 1
+                certificate_image: null
+                certificate_speaker: null
+                certificate_moderator: null
+                certificate_committee: null
+                panelist:
+                - '10'
+                - '26'
+                - '34'
+                created_at: 2023-05-16 13:45:24
+                updated_at: 2023-05-16 13:45:24
+                deleted_at: null
+                hari: Friday
+                min_time: 19:30
+                max_time: 21:00
+                series_detail:
+                - id: 50
+                  series_id: '16'
+                  series_date: 2023-07-21
+                  topic: Panelis
+                  start_time: 19:30:00
+                  end_time: 21:00:00
+                  chairman_id1: null
+                  chairman_id2: null
+                  cochairman_id: null
+                  speaker_id1: null
+                  speaker_id2: null
+                  speaker_id3: null
+                  detail_schedule: null
+                  theory_file: null
+                  link_vc: null
+                  id_vc: null
+                  password_vc: null
+                  is_status: 1
+                  created_at: 2023-05-16 14:34:05
+                  updated_at: 2023-05-16 14:34:05
+                  deleted_at: null
+                  chairman: []
+                  speaker: []
+                  cochairman: []
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '540'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:39:21 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-data-ecg-champ:
+    get:
+      summary: Get Data ECG Championship
+      tags:
+      - Session
+      operationId: GetDataECGChampionship
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil7'
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '58'
+            content-length:
+              type: string
+              default: '736'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:39:42 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-data-bringyourecg:
+    get:
+      summary: Get Data Bring Your ECG
+      tags:
+      - Session
+      operationId: GetDataBringYourECG
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil8'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+              - id: 14
+                series_type_id: '3'
+                series_title: Bring Your ECG Qualification 2
+                series_date: 2023-07-28
+                series_number: null
+                room_name: '1'
+                start_time: null
+                end_time: null
+                course_director: []
+                speaker: null
+                detail_schedule: null
+                link_vc: null
+                id_vc: null
+                password_vc: null
+                exibitor_id: null
+                sponsor_image: null
+                video_recorder: null
+                is_status: 1
+                certificate_image: null
+                certificate_speaker: null
+                certificate_moderator: null
+                certificate_committee: null
+                panelist:
+                - '25'
+                - '88'
+                - '39'
+                created_at: 2023-03-15 20:28:01
+                updated_at: 2023-05-16 13:50:00
+                deleted_at: null
+                hari: Friday
+                min_time: 10:00
+                max_time: 11:30
+                series_detail:
+                - id: 48
+                  series_id: '14'
+                  series_date: 2023-08-19
+                  topic: Panelist
+                  start_time: 10:00:00
+                  end_time: 11:30:00
+                  chairman_id1:
+                  - null
+                  chairman_id2: null
+                  cochairman_id:
+                  - null
+                  speaker_id1:
+                  - null
+                  speaker_id2: null
+                  speaker_id3: null
+                  detail_schedule: null
+                  theory_file: null
+                  link_vc: null
+                  id_vc: null
+                  password_vc: null
+                  is_status: 1
+                  created_at: 2023-03-31 10:58:43
+                  updated_at: 2023-05-16 13:50:38
+                  deleted_at: null
+                  chairman: []
+                  speaker: []
+                  cochairman: []
+              - id: 13
+                series_type_id: '3'
+                series_title: Bring Your ECG Qualification 1
+                series_date: 2023-07-15
+                series_number: null
+                room_name: '4'
+                start_time: null
+                end_time: null
+                course_director: []
+                speaker: null
+                detail_schedule: null
+                link_vc: null
+                id_vc: null
+                password_vc: null
+                exibitor_id: null
+                sponsor_image: null
+                video_recorder: null
+                is_status: 1
+                certificate_image: null
+                certificate_speaker: null
+                certificate_moderator: null
+                certificate_committee: null
+                panelist:
+                - '24'
+                - '41'
+                - '42'
+                created_at: 2023-03-15 20:27:19
+                updated_at: 2023-05-16 13:47:02
+                deleted_at: null
+                hari: Saturday
+                min_time: 10:00
+                max_time: 11:30
+                series_detail:
+                - id: 47
+                  series_id: '13'
+                  series_date: 2023-06-30
+                  topic: Panelist
+                  start_time: 10:00:00
+                  end_time: 11:30:00
+                  chairman_id1:
+                  - null
+                  chairman_id2: null
+                  cochairman_id:
+                  - null
+                  speaker_id1:
+                  - null
+                  speaker_id2: null
+                  speaker_id3: null
+                  detail_schedule: null
+                  theory_file: null
+                  link_vc: null
+                  id_vc: null
+                  password_vc: null
+                  is_status: 1
+                  created_at: 2023-03-31 10:43:19
+                  updated_at: 2023-05-16 13:47:38
+                  deleted_at: null
+                  chairman: []
+                  speaker: []
+                  cochairman: []
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '57'
+            content-length:
+              type: string
+              default: '579'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:40:07 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /my-profile:
+    get:
+      summary: Detail Profile
+      tags:
+      - Profile
+      operationId: DetailProfile
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil9'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+              - id: 14
+                xendit_id: 64267ea066ea72c888c02d6a
+                midtrans_id: null
+                category_id: 8
+                package_id: 10
+                workshop_id: []
+                register_number: REG202303310014
+                ticket_number: null
+                title: Prof
+                full_name: Daffa Pratama
+                first_name: null
+                last_name: null
+                certificate_name: Daffa
+                email: daffa@totalit.co.id
+                phone_number: '34534534'
+                gender: null
+                place_of_birth: null
+                date_of_birth: 1970-01-01
+                country: null
+                province: null
+                city: null
+                institution: sdsdxvvxc
+                office_phone_number: null
+                sponsor_id: null
+                sponsor: null
+                sales: null
+                profession_name: null
+                category: Overseas
+                package: Foreign Participant
+                symposium: Symposium
+                workshop: ''
+                workshop_certificate: null
+                symposium_old: null
+                workshop_old: null
+                package_price: 3020000
+                additional_price: 0
+                total_old_price: 0
+                upgrade_price: 0
+                upgrade_type: null
+                payment_method: Credit Card
+                payment_receipt: null
+                payment_receipt_type: null
+                payment_receipt_gl: null
+                promo_code: null
+                discount: null
+                discount_type: null
+                discount_price: 0
+                service_charge: 250041
+                total_price: 8270041
+                approval_status: Approve
+                payment_status: Paid
+                payment_date: 2023-05-12 13:50:22
+                approval_date: 2023-05-12 13:50:25
+                session_id: null
+                session_at: null
+                created_at: 2023-03-31 13:33:04
+                updated_at: 2023-05-19 14:55:42
+                deleted_at: null
+                group_id: null
+                invoice_url: https://checkout-staging.xendit.co/web/64267ea066ea72c888c02d6a
+                invoice_expired: 2023-04-02 06:33:04
+                gl_expired: null
+                api_token: 6d3a17cbe5fa39695385b05045f667723381b92df9f289607b079172bc6931f6
+                token_lifetime: 2023-05-26 14:55:42
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '809'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:42:00 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthenticated1'
+          examples:
+            application/json:
+              message: Unauthenticated.
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            content-length:
+              type: string
+              default: '35'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:40:43 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /program-glance:
+    get:
+      summary: Programme At Glance
+      tags:
+      - Misc
+      operationId: ProgrammeAtGlance
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil10'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data:
+                programs:
+                - title: Case Series
+                  subtitle: 14 & 21 July 2023
+                - title: Webinar Series for Allied Professional
+                  subtitle: 10 June 2023 & 8 July 2023
+                - title: Workshop
+                  subtitle: 17 & 18 August 2023
+                - title: ECG Championship
+                  subtitle: 'Qualification Online : 17, 24, June 2023 & 15, 22 July 2023 | Final (Offline) : 18 August 2023'
+                - title: Symposium
+                  subtitle: 18 & 19 August 2023
+                - title: Bring Your ECG
+                  subtitle: 17, 24 June 2023 & 15, 22 July 2023
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '287'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:42:31 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+  /get-barcode:
+    get:
+      summary: Get Barcode
+      tags:
+      - Misc
+      operationId: GetBarcode
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: register_number
+        in: query
+        required: true
+        type: string
+        description: ''
+      - name: Accept
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Unauthenticated1'
+          examples:
+            application/json:
+              message: Unauthenticated.
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            content-length:
+              type: string
+              default: '35'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:43:57 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Berhasil11'
+          examples:
+            application/json:
+              success: true
+              error: null
+              message: Berhasil.
+              data: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AQMAAADxGE3JAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAedJREFUeJzt201uwyAQhmFu4Ctz5CzZuRLBnh8GHLVSoer7LawaeBhWI9Io6fQpKdVHSkcw4fLqh/B4PP5P+ygjX2td0aWvv7KflVc8Ho9f7OPW2U90YyOfgrV4PB7/T7zeZLgnHo/H7+brrdFcAvO3fFN4PB7/l3yXMvaSSa+NujMej8ev9MM2F3mXZx9th8fj8Zv7aKLzUWRttp+kPwwej8f/hpdlUetz3m1y989uxXH7dL/i8Xj85t5FxtxsefsuprTuxAmPx+O38vKW/AqTHH4nEvhiqx76Id25veLxePwO/hxFe5dX0pfLaK0r6Irh8Xj8Ot8NnXbtPHH/7Qqak+iKeDwev9yfHXjyNZ0Xld8HkjE8Ho/f2k9irojW53EZUeaKeh8Rj8fjl3qX/KF/9z/TF+Uk7SFN2ETdP/F4PH4L7zaJb43Fe6mg/VVm6O0KPB6PX+/d2tjXPP3+Q/sSzOLxePw6f/qUidcTE9/KzHxOdhkej8dv4o9ueNz/roJtO1fQUFmCx+Pxe3i3TL9GefZyJvlPovP1gcfj8bv6OvwjH50Ej8fjt/bnnXz7LrFvpZ2/xnQ7xePx+L181P9kLPBJVXBN+LBextoEHo/Hr/MurvWJN7OtCY6+P5776xB4PB6/0H8Bb22rS2ejg50AAAAASUVORK5CYII=
+          headers:
+            Connection:
+              type: string
+              default: Keep-Alive
+            Keep-Alive:
+              type: string
+              default: timeout=5, max=100
+            x-powered-by:
+              type: string
+              default: Niagahoster
+            cache-control:
+              type: string
+              default: no-cache, private
+            content-type:
+              type: string
+              default: application/json
+            x-ratelimit-limit:
+              type: string
+              default: '60'
+            x-ratelimit-remaining:
+              type: string
+              default: '59'
+            content-length:
+              type: string
+              default: '715'
+            content-encoding:
+              type: string
+              default: br
+            vary:
+              type: string
+              default: Accept-Encoding,User-Agent
+            date:
+              type: string
+              default: Fri, 19 May 2023 08:45:13 GMT
+            server:
+              type: string
+              default: LiteSpeed
+            strict-transport-security:
+              type: string
+              default: max-age=31536000; includeSubDomains; preload
+            x-xss-protection:
+              type: string
+              default: 1; mode=block
+            x-content-type-options:
+              type: string
+              default: nosniff
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+definitions:
+  LoginBerhasil:
+    title: LoginBerhasil
+    example:
+      success: true
+      error: null
+      message: Login Berhasil.
+      data:
+        nama_lengkap: Daffa Pratama
+        email: daffa@totalit.co.id
+        api_token: Al2A020PJWzB2cpfozoLzz6C9GYKeQrfduwFaVmn05PfIYQS3yDjC3LID1w8myXAQKPZzzrjsHPrZQEY
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data:
+    title: Data
+    example:
+      nama_lengkap: Daffa Pratama
+      email: daffa@totalit.co.id
+      api_token: Al2A020PJWzB2cpfozoLzz6C9GYKeQrfduwFaVmn05PfIYQS3yDjC3LID1w8myXAQKPZzzrjsHPrZQEY
+    type: object
+    properties:
+      nama_lengkap:
+        type: string
+      email:
+        type: string
+      api_token:
+        type: string
+    required:
+    - nama_lengkap
+    - email
+    - api_token
+  EmailatauPasswordtidaksesuai:
+    title: EmailatauPasswordtidaksesuai
+    example:
+      success: false
+      error: UserNotFoundException
+      message: Email atau Password tidak sesuai.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Sedanglogindiperangkatyangberbeda:
+    title: Sedanglogindiperangkatyangberbeda
+    example:
+      success: false
+      error: AlreadyLoggedInException
+      message: Anda sedang login di perangkat yang berbeda.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  LogoutBerhasil:
+    title: LogoutBerhasil
+    example:
+      success: true
+      error: null
+      message: Logout Berhasil.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Unauthenticated1:
+    title: Unauthenticated1
+    example:
+      message: Unauthenticated.
+    type: object
+    properties:
+      message:
+        type: string
+    required:
+    - message
+  ResetPasswordBerhasil:
+    title: ResetPasswordBerhasil
+    example:
+      success: true
+      error: null
+      message: Reset Password Berhasil.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Datatidakditemukan:
+    title: Datatidakditemukan
+    example:
+      success: false
+      error: UserNotFoundException
+      message: Data tidak ditemukan
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Tokenalive:
+    title: Tokenalive
+    example:
+      success: true
+      error: null
+      message: Token alive
+      data:
+        nama_lengkap: Daffa Pratama
+        email: daffa@totalit.co.id
+        api_token: 6d3a17cbe5fa39695385b05045f667723381b92df9f289607b079172bc6931f6
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Berhasil:
+    title: Berhasil
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+        category:
+        - id: 8
+          category_name: Overseas
+          is_publish: true
+          created_at: 2023-03-30 11:50:03
+          updated_at: 2023-03-31 11:07:24
+          deleted_at: null
+        - id: 7
+          category_name: Cardiologist
+          is_publish: true
+          created_at: 2023-03-17 15:04:12
+          updated_at: 2023-03-17 15:04:12
+          deleted_at: null
+        - id: 1
+          category_name: Other Specialist
+          is_publish: true
+          created_at: 2022-06-15 11:48:37
+          updated_at: 2023-03-17 15:03:57
+          deleted_at: null
+        - id: 2
+          category_name: General Practitioner
+          is_publish: true
+          created_at: 2022-06-15 11:48:56
+          updated_at: 2023-03-13 11:34:05
+          deleted_at: null
+        - id: 5
+          category_name: Resident
+          is_publish: true
+          created_at: 2023-03-13 11:34:17
+          updated_at: 2023-03-13 11:34:17
+          deleted_at: null
+        - id: 6
+          category_name: Medical Student
+          is_publish: true
+          created_at: 2023-03-13 11:34:44
+          updated_at: 2023-03-13 11:34:44
+          deleted_at: null
+        - id: 3
+          category_name: Allied Professional
+          is_publish: true
+          created_at: 2022-06-15 11:49:08
+          updated_at: 2023-03-13 11:34:32
+          deleted_at: null
+        hotel_room:
+        - id: 1
+          hotel_id: '1'
+          room_name: Westin Room
+          description: Westin Room
+          room_rate: 2500000
+          room_rate_usd: 170
+          qty: 5
+          startdate_stock: 2023-08-17 00:00:00
+          enddate_stock: 2023-08-20 00:00:00
+          image: null
+          created_at: 2023-03-17 10:53:55
+          updated_at: 2023-04-03 11:47:59
+          deleted_at: null
+          title: The Westin Hotel Jakarta
+        - id: 2
+          hotel_id: '1'
+          room_name: Premium Room
+          description: Premium Room
+          room_rate: 3500000
+          room_rate_usd: 240
+          qty: 11
+          startdate_stock: 2023-08-17 00:00:00
+          enddate_stock: 2023-08-20 00:00:00
+          image: null
+          created_at: 2023-04-03 11:51:55
+          updated_at: 2023-04-03 11:51:55
+          deleted_at: null
+          title: The Westin Hotel Jakarta
+        - id: 3
+          hotel_id: '1'
+          room_name: Renewal Room
+          description: Renewal Room
+          room_rate: 4000000
+          room_rate_usd: 272
+          qty: 11
+          startdate_stock: 2023-08-17 00:00:00
+          enddate_stock: 2023-08-20 00:00:00
+          image: null
+          created_at: 2023-04-03 11:53:29
+          updated_at: 2023-04-03 11:53:29
+          deleted_at: null
+          title: The Westin Hotel Jakarta
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data2'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data2:
+    title: Data2
+    example:
+      category:
+      - id: 8
+        category_name: Overseas
+        is_publish: true
+        created_at: 2023-03-30 11:50:03
+        updated_at: 2023-03-31 11:07:24
+        deleted_at: null
+      - id: 7
+        category_name: Cardiologist
+        is_publish: true
+        created_at: 2023-03-17 15:04:12
+        updated_at: 2023-03-17 15:04:12
+        deleted_at: null
+      - id: 1
+        category_name: Other Specialist
+        is_publish: true
+        created_at: 2022-06-15 11:48:37
+        updated_at: 2023-03-17 15:03:57
+        deleted_at: null
+      - id: 2
+        category_name: General Practitioner
+        is_publish: true
+        created_at: 2022-06-15 11:48:56
+        updated_at: 2023-03-13 11:34:05
+        deleted_at: null
+      - id: 5
+        category_name: Resident
+        is_publish: true
+        created_at: 2023-03-13 11:34:17
+        updated_at: 2023-03-13 11:34:17
+        deleted_at: null
+      - id: 6
+        category_name: Medical Student
+        is_publish: true
+        created_at: 2023-03-13 11:34:44
+        updated_at: 2023-03-13 11:34:44
+        deleted_at: null
+      - id: 3
+        category_name: Allied Professional
+        is_publish: true
+        created_at: 2022-06-15 11:49:08
+        updated_at: 2023-03-13 11:34:32
+        deleted_at: null
+      hotel_room:
+      - id: 1
+        hotel_id: '1'
+        room_name: Westin Room
+        description: Westin Room
+        room_rate: 2500000
+        room_rate_usd: 170
+        qty: 5
+        startdate_stock: 2023-08-17 00:00:00
+        enddate_stock: 2023-08-20 00:00:00
+        image: null
+        created_at: 2023-03-17 10:53:55
+        updated_at: 2023-04-03 11:47:59
+        deleted_at: null
+        title: The Westin Hotel Jakarta
+      - id: 2
+        hotel_id: '1'
+        room_name: Premium Room
+        description: Premium Room
+        room_rate: 3500000
+        room_rate_usd: 240
+        qty: 11
+        startdate_stock: 2023-08-17 00:00:00
+        enddate_stock: 2023-08-20 00:00:00
+        image: null
+        created_at: 2023-04-03 11:51:55
+        updated_at: 2023-04-03 11:51:55
+        deleted_at: null
+        title: The Westin Hotel Jakarta
+      - id: 3
+        hotel_id: '1'
+        room_name: Renewal Room
+        description: Renewal Room
+        room_rate: 4000000
+        room_rate_usd: 272
+        qty: 11
+        startdate_stock: 2023-08-17 00:00:00
+        enddate_stock: 2023-08-20 00:00:00
+        image: null
+        created_at: 2023-04-03 11:53:29
+        updated_at: 2023-04-03 11:53:29
+        deleted_at: null
+        title: The Westin Hotel Jakarta
+    type: object
+    properties:
+      category:
+        type: array
+        items:
+          $ref: '#/definitions/Category'
+      hotel_room:
+        type: array
+        items:
+          $ref: '#/definitions/HotelRoom'
+    required:
+    - category
+    - hotel_room
+  Category:
+    title: Category
+    example:
+      id: 8
+      category_name: Overseas
+      is_publish: true
+      created_at: 2023-03-30 11:50:03
+      updated_at: 2023-03-31 11:07:24
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      category_name:
+        type: string
+      is_publish:
+        type: boolean
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+    - id
+    - category_name
+    - is_publish
+    - created_at
+    - updated_at
+    - deleted_at
+  HotelRoom:
+    title: HotelRoom
+    example:
+      id: 1
+      hotel_id: '1'
+      room_name: Westin Room
+      description: Westin Room
+      room_rate: 2500000
+      room_rate_usd: 170
+      qty: 5
+      startdate_stock: 2023-08-17 00:00:00
+      enddate_stock: 2023-08-20 00:00:00
+      image: null
+      created_at: 2023-03-17 10:53:55
+      updated_at: 2023-04-03 11:47:59
+      deleted_at: null
+      title: The Westin Hotel Jakarta
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      hotel_id:
+        type: string
+      room_name:
+        type: string
+      description:
+        type: string
+      room_rate:
+        type: integer
+        format: int32
+      room_rate_usd:
+        type: integer
+        format: int32
+      qty:
+        type: integer
+        format: int32
+      startdate_stock:
+        type: string
+      enddate_stock:
+        type: string
+      image:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      title:
+        type: string
+    required:
+    - id
+    - hotel_id
+    - room_name
+    - description
+    - room_rate
+    - room_rate_usd
+    - qty
+    - startdate_stock
+    - enddate_stock
+    - image
+    - created_at
+    - updated_at
+    - deleted_at
+    - title
+  Berhasil1:
+    title: Berhasil1
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data3'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data3:
+    title: Data3
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      package_name:
+        type: string
+      package_description:
+        type: string
+      currency:
+        type: string
+      price:
+        type: integer
+        format: int32
+      is_symposium:
+        type: integer
+        format: int32
+      many_workshop: {}
+      max_additional_workshop: {}
+      is_all_workshop: {}
+      description:
+        type: string
+      price_usd:
+        type: integer
+        format: int32
+      add_workshop_price:
+        type: integer
+        format: int32
+      workshop:
+        $ref: '#/definitions/Workshop'
+      additional_workshop:
+        $ref: '#/definitions/AdditionalWorkshop'
+    required:
+    - id
+    - package_name
+    - package_description
+    - currency
+    - price
+    - is_symposium
+    - many_workshop
+    - max_additional_workshop
+    - is_all_workshop
+    - description
+    - price_usd
+    - add_workshop_price
+    - workshop
+    - additional_workshop
+  Workshop:
+    title: Workshop
+    type: object
+    properties:
+      2023-08-17:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+      2023-08-18:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+  m20230817:
+    title: m20230817
+    example:
+      id: 3
+      workshop_title: Workshop for Allied Professional
+      workshop_date: 2023-08-17
+      start_time: 13:00
+      end_time: 16:00
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      workshop_title:
+        type: string
+      workshop_date:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+    required:
+    - id
+    - workshop_title
+    - workshop_date
+    - start_time
+    - end_time
+  Workshop1:
+    title: Workshop1
+    example:
+      2023-08-17:
+      - id: 3
+        workshop_title: Workshop for Allied Professional
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 9
+        workshop_title: Workshop on Case-Based Advanced ECG
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 10
+        workshop_title: Workshop on Cased-Based Holter Monitoring
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 13
+        workshop_title: Workshop on Management of Malignant Arrhythmia in ED
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      2023-08-18:
+      - id: 11
+        workshop_title: Workshop on Anticoagulation in AF with Comorbidities
+        workshop_date: 2023-08-18
+        start_time: 08:00
+        end_time: 11:00
+      - id: 12
+        workshop_title: Workshop on Fit to Work Recommendations for Patients with Arrhythmia
+        workshop_date: 2023-08-18
+        start_time: 08:00
+        end_time: 11:00
+    type: object
+    properties:
+      2023-08-17:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+      2023-08-18:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+    required:
+    - 2023-08-17
+    - 2023-08-18
+  AdditionalWorkshop:
+    title: AdditionalWorkshop
+    type: object
+    properties:
+      2023-08-17:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+      2023-08-18:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+  AdditionalWorkshop1:
+    title: AdditionalWorkshop1
+    example:
+      2023-08-17:
+      - id: 3
+        workshop_title: Workshop for Allied Professional
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 9
+        workshop_title: Workshop on Case-Based Advanced ECG
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 10
+        workshop_title: Workshop on Cased-Based Holter Monitoring
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      - id: 13
+        workshop_title: Workshop on Management of Malignant Arrhythmia in ED
+        workshop_date: 2023-08-17
+        start_time: 13:00
+        end_time: 16:00
+      2023-08-18:
+      - id: 11
+        workshop_title: Workshop on Anticoagulation in AF with Comorbidities
+        workshop_date: 2023-08-18
+        start_time: 08:00
+        end_time: 11:00
+      - id: 12
+        workshop_title: Workshop on Fit to Work Recommendations for Patients with Arrhythmia
+        workshop_date: 2023-08-18
+        start_time: 08:00
+        end_time: 11:00
+    type: object
+    properties:
+      2023-08-17:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+      2023-08-18:
+        type: array
+        items:
+          $ref: '#/definitions/m20230817'
+    required:
+    - 2023-08-17
+    - 2023-08-18
+  Emailavailable:
+    title: Emailavailable
+    example:
+      success: true
+      error: null
+      message: Email available.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Emailisalreadyinuse:
+    title: Emailisalreadyinuse
+    example:
+      success: false
+      error: NoResultsFound
+      message: Email is already in use.
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  Berhasil2:
+    title: Berhasil2
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+        id: 2
+        hotel_id: '1'
+        room_name: Premium Room
+        description: Premium Room
+        room_rate: 3500000
+        room_rate_usd: 240
+        qty: 11
+        startdate_stock: 2023-08-17
+        enddate_stock: 2023-08-20
+        stocks:
+        - id: 5
+          room_id: '2'
+          stock_date: 2023-08-17
+          stock_qty: '11'
+        - id: 6
+          room_id: '2'
+          stock_date: 2023-08-18
+          stock_qty: '10'
+        - id: 7
+          room_id: '2'
+          stock_date: 2023-08-19
+          stock_qty: '9'
+        - id: 8
+          room_id: '2'
+          stock_date: 2023-08-20
+          stock_qty: '10'
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data4'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data4:
+    title: Data4
+    example:
+      id: 2
+      hotel_id: '1'
+      room_name: Premium Room
+      description: Premium Room
+      room_rate: 3500000
+      room_rate_usd: 240
+      qty: 11
+      startdate_stock: 2023-08-17
+      enddate_stock: 2023-08-20
+      stocks:
+      - id: 5
+        room_id: '2'
+        stock_date: 2023-08-17
+        stock_qty: '11'
+      - id: 6
+        room_id: '2'
+        stock_date: 2023-08-18
+        stock_qty: '10'
+      - id: 7
+        room_id: '2'
+        stock_date: 2023-08-19
+        stock_qty: '9'
+      - id: 8
+        room_id: '2'
+        stock_date: 2023-08-20
+        stock_qty: '10'
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      hotel_id:
+        type: string
+      room_name:
+        type: string
+      description:
+        type: string
+      room_rate:
+        type: integer
+        format: int32
+      room_rate_usd:
+        type: integer
+        format: int32
+      qty:
+        type: integer
+        format: int32
+      startdate_stock:
+        type: string
+      enddate_stock:
+        type: string
+      stocks:
+        type: array
+        items:
+          $ref: '#/definitions/Stock'
+    required:
+    - id
+    - hotel_id
+    - room_name
+    - description
+    - room_rate
+    - room_rate_usd
+    - qty
+    - startdate_stock
+    - enddate_stock
+    - stocks
+  Stock:
+    title: Stock
+    example:
+      id: 5
+      room_id: '2'
+      stock_date: 2023-08-17
+      stock_qty: '11'
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      room_id:
+        type: string
+      stock_date:
+        type: string
+      stock_qty:
+        type: string
+    required:
+    - id
+    - room_id
+    - stock_date
+    - stock_qty
+  Promocodeiscorrect:
+    title: Promocodeiscorrect
+    example:
+      success: true
+      error: null
+      message: Promo code is correct, you get a 50% discount
+      data:
+        id: 1
+        package_id: 9
+        category_id: 1
+        promo_code: DISCOUNT50TOTALIT
+        promo_type: Percent
+        promo: '50'
+        qty: 10
+        start_date: 2023-05-01 00:00:00
+        end_date: 2023-05-30 00:00:00
+        created_at: 2023-05-16 16:57:29
+        updated_at: 2023-05-16 16:57:29
+        deleted_at: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data5'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data5:
+    title: Data5
+    example:
+      id: 1
+      package_id: 9
+      category_id: 1
+      promo_code: DISCOUNT50TOTALIT
+      promo_type: Percent
+      promo: '50'
+      qty: 10
+      start_date: 2023-05-01 00:00:00
+      end_date: 2023-05-30 00:00:00
+      created_at: 2023-05-16 16:57:29
+      updated_at: 2023-05-16 16:57:29
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      package_id:
+        type: integer
+        format: int32
+      category_id:
+        type: integer
+        format: int32
+      promo_code:
+        type: string
+      promo_type:
+        type: string
+      promo:
+        type: string
+      qty:
+        type: integer
+        format: int32
+      start_date:
+        type: string
+      end_date:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+    - id
+    - package_id
+    - category_id
+    - promo_code
+    - promo_type
+    - promo
+    - qty
+    - start_date
+    - end_date
+    - created_at
+    - updated_at
+    - deleted_at
+  Incorrectpromocode:
+    title: Incorrectpromocode
+    example:
+      success: false
+      error: ErrorException
+      message: Incorrect promo code
+      data: null
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+  ServiceChargeGenerated:
+    title: ServiceChargeGenerated
+    example:
+      success: true
+      error: null
+      message: Service Charge Generated.
+      data:
+        price: '2000000'
+        currency: USD
+        payment_method: Credit Card
+        service_charge: 60400
+        service_charge_usd: 4
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data6'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data6:
+    title: Data6
+    example:
+      price: '2000000'
+      currency: USD
+      payment_method: Credit Card
+      service_charge: 60400
+      service_charge_usd: 4
+    type: object
+    properties:
+      price:
+        type: string
+      currency:
+        type: string
+      payment_method:
+        type: string
+      service_charge:
+        type: integer
+        format: int32
+      service_charge_usd:
+        type: integer
+        format: int32
+    required:
+    - price
+    - currency
+    - payment_method
+    - service_charge
+    - service_charge_usd
+  Berhasil3:
+    title: Berhasil3
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+        xendit_link: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+        data:
+          register_number: REG202305190020
+          title: H.
+          full_name: Muhidin
+          certificate_name: H. Muhidin
+          email: muhidin@jaja.com.id
+          phone_number: '3244234'
+          gender: null
+          place_of_birth: null
+          date_of_birth: 1970-01-01
+          country: null
+          province: null
+          city: null
+          institution: zczczcz
+          office_phone_number: null
+          profession_name: null
+          category: General
+          category_id: '1'
+          package: '1'
+          package_id: '1'
+          workshop: '[]'
+          workshop_id: []
+          symposium: '1'
+          package_price: 100000
+          additional_price: 0
+          payment_method: Virtual Transfer
+          promo_code: null
+          discount_type: null
+          discount_price: 0
+          service_charge: 0
+          total_price: 200000
+          updated_at: 2023-05-19 15:36:38
+          created_at: 2023-05-19 15:36:36
+          id: 49
+          xendit_id: 6467351591dd0a902a3f1161
+          invoice_url: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+          invoice_expired: 2023-05-21 08:36:37
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data7'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data7:
+    title: Data7
+    example:
+      xendit_link: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+      data:
+        register_number: REG202305190020
+        title: H.
+        full_name: Muhidin
+        certificate_name: H. Muhidin
+        email: muhidin@jaja.com.id
+        phone_number: '3244234'
+        gender: null
+        place_of_birth: null
+        date_of_birth: 1970-01-01
+        country: null
+        province: null
+        city: null
+        institution: zczczcz
+        office_phone_number: null
+        profession_name: null
+        category: General
+        category_id: '1'
+        package: '1'
+        package_id: '1'
+        workshop: '[]'
+        workshop_id: []
+        symposium: '1'
+        package_price: 100000
+        additional_price: 0
+        payment_method: Virtual Transfer
+        promo_code: null
+        discount_type: null
+        discount_price: 0
+        service_charge: 0
+        total_price: 200000
+        updated_at: 2023-05-19 15:36:38
+        created_at: 2023-05-19 15:36:36
+        id: 49
+        xendit_id: 6467351591dd0a902a3f1161
+        invoice_url: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+        invoice_expired: 2023-05-21 08:36:37
+    type: object
+    properties:
+      xendit_link:
+        type: string
+      data:
+        $ref: '#/definitions/Data8'
+    required:
+    - xendit_link
+    - data
+  Data8:
+    title: Data8
+    example:
+      register_number: REG202305190020
+      title: H.
+      full_name: Muhidin
+      certificate_name: H. Muhidin
+      email: muhidin@jaja.com.id
+      phone_number: '3244234'
+      gender: null
+      place_of_birth: null
+      date_of_birth: 1970-01-01
+      country: null
+      province: null
+      city: null
+      institution: zczczcz
+      office_phone_number: null
+      profession_name: null
+      category: General
+      category_id: '1'
+      package: '1'
+      package_id: '1'
+      workshop: '[]'
+      workshop_id: []
+      symposium: '1'
+      package_price: 100000
+      additional_price: 0
+      payment_method: Virtual Transfer
+      promo_code: null
+      discount_type: null
+      discount_price: 0
+      service_charge: 0
+      total_price: 200000
+      updated_at: 2023-05-19 15:36:38
+      created_at: 2023-05-19 15:36:36
+      id: 49
+      xendit_id: 6467351591dd0a902a3f1161
+      invoice_url: https://checkout.xendit.co/web/6467351591dd0a902a3f1161
+      invoice_expired: 2023-05-21 08:36:37
+    type: object
+    properties:
+      register_number:
+        type: string
+      title:
+        type: string
+      full_name:
+        type: string
+      certificate_name:
+        type: string
+      email:
+        type: string
+      phone_number:
+        type: string
+      gender:
+        type: string
+      place_of_birth:
+        type: string
+      date_of_birth:
+        type: string
+      country:
+        type: string
+      province:
+        type: string
+      city:
+        type: string
+      institution:
+        type: string
+      office_phone_number:
+        type: string
+      profession_name:
+        type: string
+      category:
+        type: string
+      category_id:
+        type: string
+      package:
+        type: string
+      package_id:
+        type: string
+      workshop:
+        type: string
+      workshop_id:
+        type: array
+        items:
+          type: string
+      symposium:
+        type: string
+      package_price:
+        type: integer
+        format: int32
+      additional_price:
+        type: integer
+        format: int32
+      payment_method:
+        type: string
+      promo_code:
+        type: string
+      discount_type:
+        type: string
+      discount_price:
+        type: integer
+        format: int32
+      service_charge:
+        type: integer
+        format: int32
+      total_price:
+        type: integer
+        format: int32
+      updated_at:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+        format: int32
+      xendit_id:
+        type: string
+      invoice_url:
+        type: string
+      invoice_expired:
+        type: string
+    required:
+    - register_number
+    - title
+    - full_name
+    - certificate_name
+    - email
+    - phone_number
+    - gender
+    - place_of_birth
+    - date_of_birth
+    - country
+    - province
+    - city
+    - institution
+    - office_phone_number
+    - profession_name
+    - category
+    - category_id
+    - package
+    - package_id
+    - workshop
+    - workshop_id
+    - symposium
+    - package_price
+    - additional_price
+    - payment_method
+    - promo_code
+    - discount_type
+    - discount_price
+    - service_charge
+    - total_price
+    - updated_at
+    - created_at
+    - id
+    - xendit_id
+    - invoice_url
+    - invoice_expired
+  Berhasil4:
+    title: Berhasil4
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data9'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data9:
+    title: Data9
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      workshop_title:
+        type: string
+      workshop_date:
+        type: string
+      workshop_number:
+        type: integer
+        format: int32
+      room_name:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      course_director:
+        type: array
+        items:
+          $ref: '#/definitions/CourseDirector'
+      speaker:
+        type: string
+      detail_schedule:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      qty:
+        type: integer
+        format: int32
+      exibitor_id:
+        type: string
+      sponsor_image:
+        type: string
+      certificate_image:
+        type: string
+      certificate_speaker:
+        type: string
+      certificate_moderator:
+        type: string
+      certificate_committee:
+        type: string
+      video_recorder:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      panelist:
+        type: string
+      is_online:
+        type: boolean
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      workshop_detail:
+        type: array
+        items:
+          $ref: '#/definitions/WorkshopDetail'
+      min_time:
+        type: string
+      max_time:
+        type: string
+      room:
+        $ref: '#/definitions/Room'
+    required:
+    - id
+    - workshop_title
+    - workshop_date
+    - workshop_number
+    - room_name
+    - start_time
+    - end_time
+    - course_director
+    - speaker
+    - detail_schedule
+    - link_vc
+    - id_vc
+    - password_vc
+    - qty
+    - exibitor_id
+    - sponsor_image
+    - certificate_image
+    - certificate_speaker
+    - certificate_moderator
+    - certificate_committee
+    - video_recorder
+    - is_status
+    - panelist
+    - is_online
+    - created_at
+    - updated_at
+    - deleted_at
+    - workshop_detail
+    - min_time
+    - max_time
+    - room
+  CourseDirector:
+    title: CourseDirector
+    example:
+      id: 30
+      name: Mohammad Iqbal, MD, PhD
+      hospital_name: Hasan Sadikin General Hospital Bandung
+      address: bandung
+      description: <p>&nbsp;</p>
+      photo: null
+      is_status: 1
+      created_at: 2022-07-11 16:15:00
+      updated_at: 2022-10-28 13:43:43
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      hospital_name:
+        type: string
+      address:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+    - id
+    - name
+    - hospital_name
+    - address
+    - description
+    - photo
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+  WorkshopDetail:
+    title: WorkshopDetail
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      workshop_id:
+        type: string
+      workshop_date:
+        type: string
+      topic:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      chairman_id1: {}
+      chairman_id2:
+        type: string
+      cochairman_id: {}
+      speaker_id1: {}
+      speaker_id2:
+        type: string
+      detail_schedule:
+        type: string
+      theory_file:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      chairman:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: array
+        items:
+          $ref: '#/definitions/Speaker2'
+      cochairman:
+        type: array
+        items:
+          type: string
+    required:
+    - id
+    - workshop_id
+    - workshop_date
+    - topic
+    - start_time
+    - end_time
+    - chairman_id1
+    - chairman_id2
+    - cochairman_id
+    - speaker_id1
+    - speaker_id2
+    - detail_schedule
+    - theory_file
+    - link_vc
+    - id_vc
+    - password_vc
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+    - chairman
+    - speaker
+    - cochairman
+  Speaker:
+    title: Speaker
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      hospital_name:
+        type: string
+      address:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+  Speaker1:
+    title: Speaker1
+    example:
+      id: 76
+      name: Alice Supit
+      hospital_name: '-'
+      address: '-'
+      description: <p>-</p>
+      photo: 1683605506-522-5220445_anonymous-profile-grey-person-sticker-glitch-empty-profile.png
+      is_status: 1
+      created_at: 2023-05-09 11:11:46
+      updated_at: 2023-05-09 11:11:46
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      hospital_name:
+        type: string
+      address:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+    - id
+    - name
+    - hospital_name
+    - address
+    - description
+    - photo
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+  Speaker2:
+    title: Speaker2
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      hospital_name:
+        type: string
+      address:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+  Room:
+    title: Room
+    example:
+      id: 1
+      nama_room: East Java Room
+      created_at: 2022-06-15 11:15:02
+      updated_at: 2023-03-21 13:21:04
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      nama_room:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+    required:
+    - id
+    - nama_room
+    - created_at
+    - updated_at
+    - deleted_at
+  Berhasil5:
+    title: Berhasil5
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data10'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data10:
+    title: Data10
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      symposium_title:
+        type: string
+      symposium_date:
+        type: string
+      symposium_number:
+        type: integer
+        format: int32
+      room_name:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      course_director:
+        type: array
+        items:
+          $ref: '#/definitions/CourseDirector1'
+      speaker:
+        type: string
+      detail_schedule:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      exibitor_id:
+        type: string
+      sponsor_image:
+        type: string
+      video_recorder:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      panelist:
+        type: string
+      certificate_image:
+        type: string
+      certificate_speaker:
+        type: string
+      certificate_moderator:
+        type: string
+      certificate_committee:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      symposium_detail:
+        type: array
+        items:
+          $ref: '#/definitions/SymposiumDetail'
+      min_time:
+        type: string
+      max_time:
+        type: string
+      room:
+        $ref: '#/definitions/Room'
+    required:
+    - id
+    - symposium_title
+    - symposium_date
+    - symposium_number
+    - room_name
+    - start_time
+    - end_time
+    - course_director
+    - speaker
+    - detail_schedule
+    - link_vc
+    - id_vc
+    - password_vc
+    - exibitor_id
+    - sponsor_image
+    - video_recorder
+    - is_status
+    - panelist
+    - certificate_image
+    - certificate_speaker
+    - certificate_moderator
+    - certificate_committee
+    - created_at
+    - updated_at
+    - deleted_at
+    - symposium_detail
+    - min_time
+    - max_time
+    - room
+  CourseDirector1:
+    title: CourseDirector1
+    example:
+      id: 18
+      name: Dony Yugo Hermanto, MD
+      hospital_name: National Cardiac Center Harapan Kita Jakarta
+      address: null
+      description: null
+      photo: null
+      is_status: 1
+      created_at: 2022-07-11 16:15:00
+      updated_at: 2022-07-11 16:15:00
+      deleted_at: null
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      hospital_name:
+        type: string
+      address:
+        type: string
+      description:
+        type: string
+      photo:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+  SymposiumDetail:
+    title: SymposiumDetail
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      symposium_id:
+        type: string
+      symposium_date:
+        type: string
+      topic:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      chairman_id1: {}
+      chairman_id2:
+        type: string
+      cochairman_id: {}
+      speaker_id1: {}
+      speaker_id2:
+        type: string
+      detail_schedule:
+        type: string
+      theory_file:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      chairman:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: array
+        items:
+          $ref: '#/definitions/Speaker2'
+      cochairman:
+        type: array
+        items:
+          type: string
+    required:
+    - id
+    - symposium_id
+    - symposium_date
+    - topic
+    - start_time
+    - end_time
+    - chairman_id1
+    - chairman_id2
+    - cochairman_id
+    - speaker_id1
+    - speaker_id2
+    - detail_schedule
+    - theory_file
+    - link_vc
+    - id_vc
+    - password_vc
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+    - chairman
+    - speaker
+    - cochairman
+  Berhasil6:
+    title: Berhasil6
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+      - id: 15
+        series_type_id: '5'
+        series_title: Case Series Qualification 1
+        series_date: 2023-07-14
+        series_number: null
+        room_name: null
+        start_time: null
+        end_time: null
+        course_director: []
+        speaker: null
+        detail_schedule: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        exibitor_id: null
+        sponsor_image: null
+        video_recorder: null
+        is_status: 1
+        certificate_image: null
+        certificate_speaker: null
+        certificate_moderator: null
+        certificate_committee: null
+        panelist:
+        - '4'
+        - '5'
+        - '37'
+        created_at: 2023-05-16 13:40:27
+        updated_at: 2023-05-16 13:40:27
+        deleted_at: null
+        hari: Friday
+        min_time: 19:30
+        max_time: 21:00
+        series_detail:
+        - id: 49
+          series_id: '15'
+          series_date: 2023-07-14
+          topic: Panelis
+          start_time: 19:30:00
+          end_time: 21:00:00
+          chairman_id1: null
+          chairman_id2: null
+          cochairman_id: null
+          speaker_id1: null
+          speaker_id2: null
+          speaker_id3: null
+          detail_schedule: null
+          theory_file: null
+          link_vc: null
+          id_vc: null
+          password_vc: null
+          is_status: 1
+          created_at: 2023-05-16 13:42:02
+          updated_at: 2023-05-16 13:42:02
+          deleted_at: null
+          chairman: []
+          speaker: []
+          cochairman: []
+      - id: 16
+        series_type_id: '5'
+        series_title: Case Series Qualification 2
+        series_date: 2023-07-21
+        series_number: null
+        room_name: null
+        start_time: null
+        end_time: null
+        course_director: []
+        speaker: null
+        detail_schedule: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        exibitor_id: null
+        sponsor_image: null
+        video_recorder: null
+        is_status: 1
+        certificate_image: null
+        certificate_speaker: null
+        certificate_moderator: null
+        certificate_committee: null
+        panelist:
+        - '10'
+        - '26'
+        - '34'
+        created_at: 2023-05-16 13:45:24
+        updated_at: 2023-05-16 13:45:24
+        deleted_at: null
+        hari: Friday
+        min_time: 19:30
+        max_time: 21:00
+        series_detail:
+        - id: 50
+          series_id: '16'
+          series_date: 2023-07-21
+          topic: Panelis
+          start_time: 19:30:00
+          end_time: 21:00:00
+          chairman_id1: null
+          chairman_id2: null
+          cochairman_id: null
+          speaker_id1: null
+          speaker_id2: null
+          speaker_id3: null
+          detail_schedule: null
+          theory_file: null
+          link_vc: null
+          id_vc: null
+          password_vc: null
+          is_status: 1
+          created_at: 2023-05-16 14:34:05
+          updated_at: 2023-05-16 14:34:05
+          deleted_at: null
+          chairman: []
+          speaker: []
+          cochairman: []
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data11'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data11:
+    title: Data11
+    example:
+      id: 15
+      series_type_id: '5'
+      series_title: Case Series Qualification 1
+      series_date: 2023-07-14
+      series_number: null
+      room_name: null
+      start_time: null
+      end_time: null
+      course_director: []
+      speaker: null
+      detail_schedule: null
+      link_vc: null
+      id_vc: null
+      password_vc: null
+      exibitor_id: null
+      sponsor_image: null
+      video_recorder: null
+      is_status: 1
+      certificate_image: null
+      certificate_speaker: null
+      certificate_moderator: null
+      certificate_committee: null
+      panelist:
+      - '4'
+      - '5'
+      - '37'
+      created_at: 2023-05-16 13:40:27
+      updated_at: 2023-05-16 13:40:27
+      deleted_at: null
+      hari: Friday
+      min_time: 19:30
+      max_time: 21:00
+      series_detail:
+      - id: 49
+        series_id: '15'
+        series_date: 2023-07-14
+        topic: Panelis
+        start_time: 19:30:00
+        end_time: 21:00:00
+        chairman_id1: null
+        chairman_id2: null
+        cochairman_id: null
+        speaker_id1: null
+        speaker_id2: null
+        speaker_id3: null
+        detail_schedule: null
+        theory_file: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        is_status: 1
+        created_at: 2023-05-16 13:42:02
+        updated_at: 2023-05-16 13:42:02
+        deleted_at: null
+        chairman: []
+        speaker: []
+        cochairman: []
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_type_id:
+        type: string
+      series_title:
+        type: string
+      series_date:
+        type: string
+      series_number:
+        type: string
+      room_name:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      course_director:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: string
+      detail_schedule:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      exibitor_id:
+        type: string
+      sponsor_image:
+        type: string
+      video_recorder:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      certificate_image:
+        type: string
+      certificate_speaker:
+        type: string
+      certificate_moderator:
+        type: string
+      certificate_committee:
+        type: string
+      panelist:
+        type: array
+        items:
+          type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      hari:
+        type: string
+      min_time:
+        type: string
+      max_time:
+        type: string
+      series_detail:
+        type: array
+        items:
+          $ref: '#/definitions/SeriesDetail'
+    required:
+    - id
+    - series_type_id
+    - series_title
+    - series_date
+    - series_number
+    - room_name
+    - start_time
+    - end_time
+    - course_director
+    - speaker
+    - detail_schedule
+    - link_vc
+    - id_vc
+    - password_vc
+    - exibitor_id
+    - sponsor_image
+    - video_recorder
+    - is_status
+    - certificate_image
+    - certificate_speaker
+    - certificate_moderator
+    - certificate_committee
+    - panelist
+    - created_at
+    - updated_at
+    - deleted_at
+    - hari
+    - min_time
+    - max_time
+    - series_detail
+  SeriesDetail:
+    title: SeriesDetail
+    example:
+      id: 49
+      series_id: '15'
+      series_date: 2023-07-14
+      topic: Panelis
+      start_time: 19:30:00
+      end_time: 21:00:00
+      chairman_id1: null
+      chairman_id2: null
+      cochairman_id: null
+      speaker_id1: null
+      speaker_id2: null
+      speaker_id3: null
+      detail_schedule: null
+      theory_file: null
+      link_vc: null
+      id_vc: null
+      password_vc: null
+      is_status: 1
+      created_at: 2023-05-16 13:42:02
+      updated_at: 2023-05-16 13:42:02
+      deleted_at: null
+      chairman: []
+      speaker: []
+      cochairman: []
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_id:
+        type: string
+      series_date:
+        type: string
+      topic:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      chairman_id1:
+        type: string
+      chairman_id2:
+        type: string
+      cochairman_id:
+        type: string
+      speaker_id1:
+        type: string
+      speaker_id2:
+        type: string
+      speaker_id3:
+        type: string
+      detail_schedule:
+        type: string
+      theory_file:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      chairman:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: array
+        items:
+          type: string
+      cochairman:
+        type: array
+        items:
+          type: string
+    required:
+    - id
+    - series_id
+    - series_date
+    - topic
+    - start_time
+    - end_time
+    - chairman_id1
+    - chairman_id2
+    - cochairman_id
+    - speaker_id1
+    - speaker_id2
+    - speaker_id3
+    - detail_schedule
+    - theory_file
+    - link_vc
+    - id_vc
+    - password_vc
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+    - chairman
+    - speaker
+    - cochairman
+  Berhasil7:
+    title: Berhasil7
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data12'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data12:
+    title: Data12
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_type_id:
+        type: string
+      series_title:
+        type: string
+      series_date:
+        type: string
+      series_number:
+        type: string
+      room_name:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      course_director:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: string
+      detail_schedule:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      exibitor_id:
+        type: string
+      sponsor_image:
+        type: string
+      video_recorder:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      certificate_image:
+        type: string
+      certificate_speaker:
+        type: string
+      certificate_moderator:
+        type: string
+      certificate_committee:
+        type: string
+      panelist:
+        type: array
+        items:
+          type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      hari:
+        type: string
+      min_time:
+        type: string
+      max_time:
+        type: string
+      series_detail:
+        type: array
+        items:
+          $ref: '#/definitions/SeriesDetail1'
+    required:
+    - id
+    - series_type_id
+    - series_title
+    - series_date
+    - series_number
+    - room_name
+    - start_time
+    - end_time
+    - course_director
+    - speaker
+    - detail_schedule
+    - link_vc
+    - id_vc
+    - password_vc
+    - exibitor_id
+    - sponsor_image
+    - video_recorder
+    - is_status
+    - certificate_image
+    - certificate_speaker
+    - certificate_moderator
+    - certificate_committee
+    - panelist
+    - created_at
+    - updated_at
+    - deleted_at
+    - hari
+    - min_time
+    - max_time
+    - series_detail
+  SeriesDetail1:
+    title: SeriesDetail1
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_id:
+        type: string
+      series_date:
+        type: string
+      topic:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      chairman_id1:
+        type: array
+        items:
+          type: string
+      chairman_id2:
+        type: string
+      cochairman_id:
+        type: array
+        items:
+          type: string
+      speaker_id1: {}
+      speaker_id2:
+        type: string
+      speaker_id3:
+        type: string
+      detail_schedule:
+        type: string
+      theory_file:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      chairman:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: array
+        items:
+          type: string
+      cochairman:
+        type: array
+        items:
+          type: string
+    required:
+    - id
+    - series_id
+    - series_date
+    - topic
+    - start_time
+    - end_time
+    - chairman_id1
+    - chairman_id2
+    - cochairman_id
+    - speaker_id1
+    - speaker_id2
+    - speaker_id3
+    - detail_schedule
+    - theory_file
+    - link_vc
+    - id_vc
+    - password_vc
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+    - chairman
+    - speaker
+    - cochairman
+  Berhasil8:
+    title: Berhasil8
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+      - id: 14
+        series_type_id: '3'
+        series_title: Bring Your ECG Qualification 2
+        series_date: 2023-07-28
+        series_number: null
+        room_name: '1'
+        start_time: null
+        end_time: null
+        course_director: []
+        speaker: null
+        detail_schedule: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        exibitor_id: null
+        sponsor_image: null
+        video_recorder: null
+        is_status: 1
+        certificate_image: null
+        certificate_speaker: null
+        certificate_moderator: null
+        certificate_committee: null
+        panelist:
+        - '25'
+        - '88'
+        - '39'
+        created_at: 2023-03-15 20:28:01
+        updated_at: 2023-05-16 13:50:00
+        deleted_at: null
+        hari: Friday
+        min_time: 10:00
+        max_time: 11:30
+        series_detail:
+        - id: 48
+          series_id: '14'
+          series_date: 2023-08-19
+          topic: Panelist
+          start_time: 10:00:00
+          end_time: 11:30:00
+          chairman_id1:
+          - null
+          chairman_id2: null
+          cochairman_id:
+          - null
+          speaker_id1:
+          - null
+          speaker_id2: null
+          speaker_id3: null
+          detail_schedule: null
+          theory_file: null
+          link_vc: null
+          id_vc: null
+          password_vc: null
+          is_status: 1
+          created_at: 2023-03-31 10:58:43
+          updated_at: 2023-05-16 13:50:38
+          deleted_at: null
+          chairman: []
+          speaker: []
+          cochairman: []
+      - id: 13
+        series_type_id: '3'
+        series_title: Bring Your ECG Qualification 1
+        series_date: 2023-07-15
+        series_number: null
+        room_name: '4'
+        start_time: null
+        end_time: null
+        course_director: []
+        speaker: null
+        detail_schedule: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        exibitor_id: null
+        sponsor_image: null
+        video_recorder: null
+        is_status: 1
+        certificate_image: null
+        certificate_speaker: null
+        certificate_moderator: null
+        certificate_committee: null
+        panelist:
+        - '24'
+        - '41'
+        - '42'
+        created_at: 2023-03-15 20:27:19
+        updated_at: 2023-05-16 13:47:02
+        deleted_at: null
+        hari: Saturday
+        min_time: 10:00
+        max_time: 11:30
+        series_detail:
+        - id: 47
+          series_id: '13'
+          series_date: 2023-06-30
+          topic: Panelist
+          start_time: 10:00:00
+          end_time: 11:30:00
+          chairman_id1:
+          - null
+          chairman_id2: null
+          cochairman_id:
+          - null
+          speaker_id1:
+          - null
+          speaker_id2: null
+          speaker_id3: null
+          detail_schedule: null
+          theory_file: null
+          link_vc: null
+          id_vc: null
+          password_vc: null
+          is_status: 1
+          created_at: 2023-03-31 10:43:19
+          updated_at: 2023-05-16 13:47:38
+          deleted_at: null
+          chairman: []
+          speaker: []
+          cochairman: []
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data13'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data13:
+    title: Data13
+    example:
+      id: 14
+      series_type_id: '3'
+      series_title: Bring Your ECG Qualification 2
+      series_date: 2023-07-28
+      series_number: null
+      room_name: '1'
+      start_time: null
+      end_time: null
+      course_director: []
+      speaker: null
+      detail_schedule: null
+      link_vc: null
+      id_vc: null
+      password_vc: null
+      exibitor_id: null
+      sponsor_image: null
+      video_recorder: null
+      is_status: 1
+      certificate_image: null
+      certificate_speaker: null
+      certificate_moderator: null
+      certificate_committee: null
+      panelist:
+      - '25'
+      - '88'
+      - '39'
+      created_at: 2023-03-15 20:28:01
+      updated_at: 2023-05-16 13:50:00
+      deleted_at: null
+      hari: Friday
+      min_time: 10:00
+      max_time: 11:30
+      series_detail:
+      - id: 48
+        series_id: '14'
+        series_date: 2023-08-19
+        topic: Panelist
+        start_time: 10:00:00
+        end_time: 11:30:00
+        chairman_id1:
+        - null
+        chairman_id2: null
+        cochairman_id:
+        - null
+        speaker_id1:
+        - null
+        speaker_id2: null
+        speaker_id3: null
+        detail_schedule: null
+        theory_file: null
+        link_vc: null
+        id_vc: null
+        password_vc: null
+        is_status: 1
+        created_at: 2023-03-31 10:58:43
+        updated_at: 2023-05-16 13:50:38
+        deleted_at: null
+        chairman: []
+        speaker: []
+        cochairman: []
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_type_id:
+        type: string
+      series_title:
+        type: string
+      series_date:
+        type: string
+      series_number:
+        type: string
+      room_name:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      course_director:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: string
+      detail_schedule:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      exibitor_id:
+        type: string
+      sponsor_image:
+        type: string
+      video_recorder:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      certificate_image:
+        type: string
+      certificate_speaker:
+        type: string
+      certificate_moderator:
+        type: string
+      certificate_committee:
+        type: string
+      panelist:
+        type: array
+        items:
+          type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      hari:
+        type: string
+      min_time:
+        type: string
+      max_time:
+        type: string
+      series_detail:
+        type: array
+        items:
+          $ref: '#/definitions/SeriesDetail2'
+    required:
+    - id
+    - series_type_id
+    - series_title
+    - series_date
+    - series_number
+    - room_name
+    - start_time
+    - end_time
+    - course_director
+    - speaker
+    - detail_schedule
+    - link_vc
+    - id_vc
+    - password_vc
+    - exibitor_id
+    - sponsor_image
+    - video_recorder
+    - is_status
+    - certificate_image
+    - certificate_speaker
+    - certificate_moderator
+    - certificate_committee
+    - panelist
+    - created_at
+    - updated_at
+    - deleted_at
+    - hari
+    - min_time
+    - max_time
+    - series_detail
+  SeriesDetail2:
+    title: SeriesDetail2
+    example:
+      id: 48
+      series_id: '14'
+      series_date: 2023-08-19
+      topic: Panelist
+      start_time: 10:00:00
+      end_time: 11:30:00
+      chairman_id1:
+      - null
+      chairman_id2: null
+      cochairman_id:
+      - null
+      speaker_id1:
+      - null
+      speaker_id2: null
+      speaker_id3: null
+      detail_schedule: null
+      theory_file: null
+      link_vc: null
+      id_vc: null
+      password_vc: null
+      is_status: 1
+      created_at: 2023-03-31 10:58:43
+      updated_at: 2023-05-16 13:50:38
+      deleted_at: null
+      chairman: []
+      speaker: []
+      cochairman: []
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      series_id:
+        type: string
+      series_date:
+        type: string
+      topic:
+        type: string
+      start_time:
+        type: string
+      end_time:
+        type: string
+      chairman_id1:
+        type: array
+        items:
+          type: string
+      chairman_id2:
+        type: string
+      cochairman_id:
+        type: array
+        items:
+          type: string
+      speaker_id1:
+        type: array
+        items:
+          type: string
+      speaker_id2:
+        type: string
+      speaker_id3:
+        type: string
+      detail_schedule:
+        type: string
+      theory_file:
+        type: string
+      link_vc:
+        type: string
+      id_vc:
+        type: string
+      password_vc:
+        type: string
+      is_status:
+        type: integer
+        format: int32
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      chairman:
+        type: array
+        items:
+          type: string
+      speaker:
+        type: array
+        items:
+          type: string
+      cochairman:
+        type: array
+        items:
+          type: string
+    required:
+    - id
+    - series_id
+    - series_date
+    - topic
+    - start_time
+    - end_time
+    - chairman_id1
+    - chairman_id2
+    - cochairman_id
+    - speaker_id1
+    - speaker_id2
+    - speaker_id3
+    - detail_schedule
+    - theory_file
+    - link_vc
+    - id_vc
+    - password_vc
+    - is_status
+    - created_at
+    - updated_at
+    - deleted_at
+    - chairman
+    - speaker
+    - cochairman
+  Berhasil9:
+    title: Berhasil9
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+      - id: 14
+        xendit_id: 64267ea066ea72c888c02d6a
+        midtrans_id: null
+        category_id: 8
+        package_id: 10
+        workshop_id: []
+        register_number: REG202303310014
+        ticket_number: null
+        title: Prof
+        full_name: Daffa Pratama
+        first_name: null
+        last_name: null
+        certificate_name: Daffa
+        email: daffa@totalit.co.id
+        phone_number: '34534534'
+        gender: null
+        place_of_birth: null
+        date_of_birth: 1970-01-01
+        country: null
+        province: null
+        city: null
+        institution: sdsdxvvxc
+        office_phone_number: null
+        sponsor_id: null
+        sponsor: null
+        sales: null
+        profession_name: null
+        category: Overseas
+        package: Foreign Participant
+        symposium: Symposium
+        workshop: ''
+        workshop_certificate: null
+        symposium_old: null
+        workshop_old: null
+        package_price: 3020000
+        additional_price: 0
+        total_old_price: 0
+        upgrade_price: 0
+        upgrade_type: null
+        payment_method: Credit Card
+        payment_receipt: null
+        payment_receipt_type: null
+        payment_receipt_gl: null
+        promo_code: null
+        discount: null
+        discount_type: null
+        discount_price: 0
+        service_charge: 250041
+        total_price: 8270041
+        approval_status: Approve
+        payment_status: Paid
+        payment_date: 2023-05-12 13:50:22
+        approval_date: 2023-05-12 13:50:25
+        session_id: null
+        session_at: null
+        created_at: 2023-03-31 13:33:04
+        updated_at: 2023-05-19 14:55:42
+        deleted_at: null
+        group_id: null
+        invoice_url: https://checkout-staging.xendit.co/web/64267ea066ea72c888c02d6a
+        invoice_expired: 2023-04-02 06:33:04
+        gl_expired: null
+        api_token: 6d3a17cbe5fa39695385b05045f667723381b92df9f289607b079172bc6931f6
+        token_lifetime: 2023-05-26 14:55:42
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Data14'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data14:
+    title: Data14
+    example:
+      id: 14
+      xendit_id: 64267ea066ea72c888c02d6a
+      midtrans_id: null
+      category_id: 8
+      package_id: 10
+      workshop_id: []
+      register_number: REG202303310014
+      ticket_number: null
+      title: Prof
+      full_name: Daffa Pratama
+      first_name: null
+      last_name: null
+      certificate_name: Daffa
+      email: daffa@totalit.co.id
+      phone_number: '34534534'
+      gender: null
+      place_of_birth: null
+      date_of_birth: 1970-01-01
+      country: null
+      province: null
+      city: null
+      institution: sdsdxvvxc
+      office_phone_number: null
+      sponsor_id: null
+      sponsor: null
+      sales: null
+      profession_name: null
+      category: Overseas
+      package: Foreign Participant
+      symposium: Symposium
+      workshop: ''
+      workshop_certificate: null
+      symposium_old: null
+      workshop_old: null
+      package_price: 3020000
+      additional_price: 0
+      total_old_price: 0
+      upgrade_price: 0
+      upgrade_type: null
+      payment_method: Credit Card
+      payment_receipt: null
+      payment_receipt_type: null
+      payment_receipt_gl: null
+      promo_code: null
+      discount: null
+      discount_type: null
+      discount_price: 0
+      service_charge: 250041
+      total_price: 8270041
+      approval_status: Approve
+      payment_status: Paid
+      payment_date: 2023-05-12 13:50:22
+      approval_date: 2023-05-12 13:50:25
+      session_id: null
+      session_at: null
+      created_at: 2023-03-31 13:33:04
+      updated_at: 2023-05-19 14:55:42
+      deleted_at: null
+      group_id: null
+      invoice_url: https://checkout-staging.xendit.co/web/64267ea066ea72c888c02d6a
+      invoice_expired: 2023-04-02 06:33:04
+      gl_expired: null
+      api_token: 6d3a17cbe5fa39695385b05045f667723381b92df9f289607b079172bc6931f6
+      token_lifetime: 2023-05-26 14:55:42
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      xendit_id:
+        type: string
+      midtrans_id:
+        type: string
+      category_id:
+        type: integer
+        format: int32
+      package_id:
+        type: integer
+        format: int32
+      workshop_id:
+        type: array
+        items:
+          type: string
+      register_number:
+        type: string
+      ticket_number:
+        type: string
+      title:
+        type: string
+      full_name:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      certificate_name:
+        type: string
+      email:
+        type: string
+      phone_number:
+        type: string
+      gender:
+        type: string
+      place_of_birth:
+        type: string
+      date_of_birth:
+        type: string
+      country:
+        type: string
+      province:
+        type: string
+      city:
+        type: string
+      institution:
+        type: string
+      office_phone_number:
+        type: string
+      sponsor_id:
+        type: string
+      sponsor:
+        type: string
+      sales:
+        type: string
+      profession_name:
+        type: string
+      category:
+        type: string
+      package:
+        type: string
+      symposium:
+        type: string
+      workshop:
+        type: string
+      workshop_certificate:
+        type: string
+      symposium_old:
+        type: string
+      workshop_old:
+        type: string
+      package_price:
+        type: integer
+        format: int32
+      additional_price:
+        type: integer
+        format: int32
+      total_old_price:
+        type: integer
+        format: int32
+      upgrade_price:
+        type: integer
+        format: int32
+      upgrade_type:
+        type: string
+      payment_method:
+        type: string
+      payment_receipt:
+        type: string
+      payment_receipt_type:
+        type: string
+      payment_receipt_gl:
+        type: string
+      promo_code:
+        type: string
+      discount:
+        type: string
+      discount_type:
+        type: string
+      discount_price:
+        type: integer
+        format: int32
+      service_charge:
+        type: integer
+        format: int32
+      total_price:
+        type: integer
+        format: int32
+      approval_status:
+        type: string
+      payment_status:
+        type: string
+      payment_date:
+        type: string
+      approval_date:
+        type: string
+      session_id:
+        type: string
+      session_at:
+        type: string
+      created_at:
+        type: string
+      updated_at:
+        type: string
+      deleted_at:
+        type: string
+      group_id:
+        type: string
+      invoice_url:
+        type: string
+      invoice_expired:
+        type: string
+      gl_expired:
+        type: string
+      api_token:
+        type: string
+      token_lifetime:
+        type: string
+    required:
+    - id
+    - xendit_id
+    - midtrans_id
+    - category_id
+    - package_id
+    - workshop_id
+    - register_number
+    - ticket_number
+    - title
+    - full_name
+    - first_name
+    - last_name
+    - certificate_name
+    - email
+    - phone_number
+    - gender
+    - place_of_birth
+    - date_of_birth
+    - country
+    - province
+    - city
+    - institution
+    - office_phone_number
+    - sponsor_id
+    - sponsor
+    - sales
+    - profession_name
+    - category
+    - package
+    - symposium
+    - workshop
+    - workshop_certificate
+    - symposium_old
+    - workshop_old
+    - package_price
+    - additional_price
+    - total_old_price
+    - upgrade_price
+    - upgrade_type
+    - payment_method
+    - payment_receipt
+    - payment_receipt_type
+    - payment_receipt_gl
+    - promo_code
+    - discount
+    - discount_type
+    - discount_price
+    - service_charge
+    - total_price
+    - approval_status
+    - payment_status
+    - payment_date
+    - approval_date
+    - session_id
+    - session_at
+    - created_at
+    - updated_at
+    - deleted_at
+    - group_id
+    - invoice_url
+    - invoice_expired
+    - gl_expired
+    - api_token
+    - token_lifetime
+  Berhasil10:
+    title: Berhasil10
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data:
+        programs:
+        - title: Case Series
+          subtitle: 14 & 21 July 2023
+        - title: Webinar Series for Allied Professional
+          subtitle: 10 June 2023 & 8 July 2023
+        - title: Workshop
+          subtitle: 17 & 18 August 2023
+        - title: ECG Championship
+          subtitle: 'Qualification Online : 17, 24, June 2023 & 15, 22 July 2023 | Final (Offline) : 18 August 2023'
+        - title: Symposium
+          subtitle: 18 & 19 August 2023
+        - title: Bring Your ECG
+          subtitle: 17, 24 June 2023 & 15, 22 July 2023
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        $ref: '#/definitions/Data15'
+    required:
+    - success
+    - error
+    - message
+    - data
+  Data15:
+    title: Data15
+    example:
+      programs:
+      - title: Case Series
+        subtitle: 14 & 21 July 2023
+      - title: Webinar Series for Allied Professional
+        subtitle: 10 June 2023 & 8 July 2023
+      - title: Workshop
+        subtitle: 17 & 18 August 2023
+      - title: ECG Championship
+        subtitle: 'Qualification Online : 17, 24, June 2023 & 15, 22 July 2023 | Final (Offline) : 18 August 2023'
+      - title: Symposium
+        subtitle: 18 & 19 August 2023
+      - title: Bring Your ECG
+        subtitle: 17, 24 June 2023 & 15, 22 July 2023
+    type: object
+    properties:
+      programs:
+        type: array
+        items:
+          $ref: '#/definitions/Program'
+    required:
+    - programs
+  Program:
+    title: Program
+    example:
+      title: Case Series
+      subtitle: 14 & 21 July 2023
+    type: object
+    properties:
+      title:
+        type: string
+      subtitle:
+        type: string
+    required:
+    - title
+    - subtitle
+  Berhasil11:
+    title: Berhasil11
+    example:
+      success: true
+      error: null
+      message: Berhasil.
+      data: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AQMAAADxGE3JAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAedJREFUeJzt201uwyAQhmFu4Ctz5CzZuRLBnh8GHLVSoer7LawaeBhWI9Io6fQpKdVHSkcw4fLqh/B4PP5P+ygjX2td0aWvv7KflVc8Ho9f7OPW2U90YyOfgrV4PB7/T7zeZLgnHo/H7+brrdFcAvO3fFN4PB7/l3yXMvaSSa+NujMej8ev9MM2F3mXZx9th8fj8Zv7aKLzUWRttp+kPwwej8f/hpdlUetz3m1y989uxXH7dL/i8Xj85t5FxtxsefsuprTuxAmPx+O38vKW/AqTHH4nEvhiqx76Id25veLxePwO/hxFe5dX0pfLaK0r6Irh8Xj8Ot8NnXbtPHH/7Qqak+iKeDwev9yfHXjyNZ0Xld8HkjE8Ho/f2k9irojW53EZUeaKeh8Rj8fjl3qX/KF/9z/TF+Uk7SFN2ETdP/F4PH4L7zaJb43Fe6mg/VVm6O0KPB6PX+/d2tjXPP3+Q/sSzOLxePw6f/qUidcTE9/KzHxOdhkej8dv4o9ueNz/roJtO1fQUFmCx+Pxe3i3TL9GefZyJvlPovP1gcfj8bv6OvwjH50Ej8fjt/bnnXz7LrFvpZ2/xnQ7xePx+L181P9kLPBJVXBN+LBextoEHo/Hr/MurvWJN7OtCY6+P5776xB4PB6/0H8Bb22rS2ejg50AAAAASUVORK5CYII=
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+      data:
+        type: string
+    required:
+    - success
+    - error
+    - message
+    - data
+tags:
+- name: Auth
+- name: Registration
+- name: Session
+- name: Profile
+- name: Misc
+  description: ''
